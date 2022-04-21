@@ -1,0 +1,101 @@
+# Variables
+
+Nn = New forms ($300/form)
+Nt = Forms in traditional process ($25/form)
+Ns = Forms in special process ($75/form)
+
+# Objective Function to be minimized
+Min.
+300*Nn + 25*Nt + 75*Ns
+
+# Constraints:
+For all the days
+
+Nn = Nn1 + Nn2 + Nn3 + Nn4 + Nn5 + Nn6 + Nn7 + Nn8 + Nn9 + Nn10
+Nt = Nt1 + Nt2 + Nt3 + Nt4 + Nt5 + Nt6 + Nt7 + Nt8 + Nt9 + Nt10
+Ns = Ns1 + Ns2 + Ns3 + Ns4 + Ns5 + Ns6 + Ns7 + Ns8 + Ns9 + Ns10
+
+Per Day
+
+Day 1: Total Forms = 50
+
+1*Nn1 + 0*Nt1 + 0*Ns1 = 50
+
+Day 2: Total Forms = 60
+
+1*Nn2 + 0*Nt2 + 0*Ns2 = 60
+
+Day 3: Total Forms = 80 (50 from day 1 can be reused)
+
+Nt3 + Ns3 = 50, Nn3 = 30
+
+Day 4: Total Forms = 70 (60 from day 2 can be reused)
+
+Nt4 + Ns4 = 60, Nn4 = 10
+
+# ======================================================
+Gurley
+# ======================================================
+
+#Add an available variable
+Na = Na1 + Na2 + Na3 + Na4 + Na5 + Na6 + Na7 + Na8 + Na9 + Na10
+
+#Day 1: Total Forms = 50
+#Need
+1*Nn1 + 0*Nt1 + 0*Ns1 = 50
+#Available
+Na1 = 0
+
+#Day 2: Total Forms = 60
+#Need
+1*Nn2 + 0*Nt2 + 0*Ns2 = 60
+#Available
+Na2 = 0
+
+#Day 3: Total Forms = 80
+#Need
+1*Nn3 + 0*Nt3 + 0*Ns3 = 80
+#Available
+Na3 = 1*Nn1 - 1*Nt3 - 1*Ns3
+
+#Day 4: Total Forms = 70
+#Need
+1*Nn4 + 0*Nt4 + 0*Ns4 = 70
+#Available
+Na4 = 1*Na3 + 1*Nn2 - 1*Nt4 - 1*Ns4
+
+#Day 5: Total Forms = 50
+#Need
+1*Nn5 + 1*Nt5 + 0*Ns5 = 50
+#Available
+Na5 = 1*Na4 + 1*Nn3 - 1*Nt5 - 1*Ns5
+
+#Day 6: Total Forms = 60
+#Need
+1*Nn6 + 1*Nt6 + 0*Ns6 = 60
+#Available
+Na6 = 1*Na5 + 1*Nn4 - 1*Nt6 - 1*Ns6
+
+#Day 7: Total Forms = 90
+#Need
+1*Nn7 + 1*Nt7 + 1*Ns7 = 90
+#Available
+Na7 = 1*Na6 + 1*Nn5 - 1*Nt7 - 1*Ns7
+
+Day 8: Total Forms = 80
+#Need
+1*Nn8 + 1*Nt8 + 1*Ns8 = 80
+#Available
+Na8 = 1*Na7 + 1*Nn6 - 1*Nt8 - 1*Ns8
+
+#Day 9: Total Forms = 50
+#Need
+1*Nn9 + 1*Nt9 + 1*Ns9 = 50
+#Available
+Na9 = 1*Na8 + 1*Nn7 - 1*Nt9 - 1*Ns9
+
+#Day 10: Total Forms = 100
+#Need
+1*Nn10 + 1*Nt10 + 1*Ns10 = 100
+#Available
+Na10 = 1*Na9 + 1*Nn8 - 1*Nt10 - 1*Ns10
